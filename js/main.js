@@ -65,10 +65,10 @@ function calcularNuevoPeso(numPeso,arrayPlanetsGravity){
   arrayPlanetsGravity.forEach(element =>{
     let planeta=element.planeta;
     //Condicional para validar que los planetas sean diferentes a la Tierra
-    if (planeta!=arrayPlanetsGravity[2].planeta){
+    if (planeta!==arrayPlanetsGravity[2].planeta){
       let tituloPlaneta=document.querySelector("a#planeta"+planeta);
       tituloPlaneta.textContent=planeta;
-      nuevoPeso=numPeso*element.gravedad/earthGravity;
+      nuevoPeso=Number((numPeso*element.gravedad/earthGravity).toFixed(2));
       let parrafoNuevoPeso=document.querySelector("p#p"+planeta);
       parrafoNuevoPeso.textContent="Tu peso en "+planeta+" es "+nuevoPeso+" kg.";
     } 
