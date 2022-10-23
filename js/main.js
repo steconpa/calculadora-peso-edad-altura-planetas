@@ -70,7 +70,7 @@ function calcularNuevoPeso(numPeso,arrayPlanetsGravity){
       tituloPlaneta.textContent=planeta;
       nuevoPeso=Number((numPeso*element.gravedad/earthGravity).toFixed(2));
       let parrafoNuevoPeso=document.querySelector("p#p"+planeta);
-      parrafoNuevoPeso.textContent="Tu peso en "+planeta+" es "+nuevoPeso+" kg.";
+      parrafoNuevoPeso.textContent=nuevoPeso+" kg.";
     } 
   });
 }
