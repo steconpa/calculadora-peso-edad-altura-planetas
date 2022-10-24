@@ -20,10 +20,12 @@
       <h1>¿Cuánto pesas en los diferentes planetas del sistema solar?</h1>
       <p id="pTierra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem eos asperiores, impedit minus dolor error consectetur cumque consequatur illo sint nam exercitationem. Quos impedit similique, esse architecto provident harum at?</p>
       
-      <form action="" id="formUserWeight" name="formUserWeight" method="get">
-        <label for="inputWeight">Ingresa tu peso en en el planeta Tierra</label>
-        <input id="inputWeight" name="inputWeight" type="number" placeholder="Ingresa tu peso aquí" required>
-        <button id="buttonEnviarPeso" name="bottonenviarPeso">Enviar</button>
+      <form action="" id="formUserValues" name="formUserValues" method="get">
+        <label for="inputWeight">Ingrese su peso</label>
+        <input id="inputWeight" name="inputWeight" type="number" placeholder="Ingrese su peso aquí" required>
+        <label for="inputAge">Ingrese su edad</label>
+        <input id="inputAge" name="inputAge" type="number" placeholder="Ingrese su edad aquí" required>
+        <button id="buttonSendValues" name="buttonSendValues">Enviar</button>
       </form>
 
       <nav class="menu">
@@ -43,19 +45,38 @@
     <main>
       <section class="grid-section">
         <article class="grid-planet">
-          <img src="images/mercurio.svg" />
+          <img src="images/mercurio.svg" alt="Planeta Mercurio" />
           <h2><a id="planetaMercurio" name="planetaMercurio"></a></h2>
-          <div class="grid-datos">
-            <h3>Tu Peso</h3>
-            <p id="pMercurio"></p>
+          <div class="cajas-resultados">
+            <div class="caja-peso">
+              <h3>Tu Peso</h3>
+              <p id="pMercurio"></p>
+            </div>
+            <div class="caja-edad">
+              <h3>Tu Edad</h3>
+              <p id="eMercurio"></p>
+            </div>      
           </div>
           <div class="grid-facts">
-            <p>Datos</p>
+            <h3>Datos</h3>
           </div>
         </article>
         <article class="grid-planet">
+          <img src="images/venus.svg" alt="Planeta Venus" />
           <h2><a id="planetaVenus" name="planetaVenus"></a></h2>
-          <p id="pVenus"></p>
+          <div class="cajas-resultados">
+            <div class="caja-peso">
+              <h3>Tu Peso</h3>
+              <p id="pVenus"></p>
+            </div>
+            <div class="caja-edad">
+              <h3>Tu Edad</h3>
+              <p id="eVenus"></p>
+            </div>         
+          </div>
+          <div class="grid-facts">
+            <h3>Datos</h3>
+          </div>
         </article>
         <article class="grid-planet">
           <h2><a id="planetaMarte" name="planetaMarte"></a></h2>

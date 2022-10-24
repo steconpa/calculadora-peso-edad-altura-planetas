@@ -1,4 +1,4 @@
-const gravityPerPlanet=[
+const systemSolarPlanets=[
   { planeta: "Mercurio",
     gravedad: 3.7,
     velRotacionKmH: 10.83,
@@ -49,28 +49,35 @@ const gravityPerPlanet=[
     periodoOrbitalDias:59800,},
 ];
 
-let userWeight;
-const formUserWeight=document.querySelector("#formUserWeight");
+let userWeight, userAge;
+const earthGravity=systemSolarPlanets[2].gravedad;
+const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
+const formUserValues=document.querySelector("#formUserValues");
 
-formUserWeight.addEventListener("submit",(event)=>{
+formUserValues.addEventListener("submit",(event)=>{
   event.preventDefault();
   userWeight=event.target.inputWeight.value;
-  event.target.inputWeight.value="";
-  calcularNuevoPeso(userWeight,gravityPerPlanet);
+  userAge=event.target.inputAge.value;
+  event.target.inputWeight.value='';
+  event.target.inputAge.value='';
+  calcNewValues(userWeight,userAge,systemSolarPlanets);
 })
 
-function calcularNuevoPeso(numPeso,arrayPlanetsGravity){
-  let earthGravity=arrayPlanetsGravity[2].gravedad;
-  let nuevoPeso=0;
-  arrayPlanetsGravity.forEach(element =>{
+function calcNewValues(numPeso,numAge,arrayPlanets){
+  let newWeight=0; 
+  let newAge=0;
+  arrayPlanets.forEach(element =>{
     let planeta=element.planeta;
     //Condicional para validar que los planetas sean diferentes a la Tierra
-    if (planeta!==arrayPlanetsGravity[2].planeta){
+    if (planeta!==arrayPlanets[2].planeta){
       let tituloPlaneta=document.querySelector("a#planeta"+planeta);
       tituloPlaneta.textContent=planeta;
-      nuevoPeso=Number((numPeso*element.gravedad/earthGravity).toFixed(2));
+      newWeight=Number((numPeso*element.gravedad/earthGravity).toFixed(2));
+      newAge=Number((numAge*earthDaysYear/element.periodoOrbitalDias).toFixed(2));
       let parrafoNuevoPeso=document.querySelector("p#p"+planeta);
-      parrafoNuevoPeso.textContent=nuevoPeso+" kg.";
+      parrafoNuevoPeso.textContent=newWeight+" kg.";
+      let parrafoNuevaEdad=document.querySelector("p#e"+planeta);
+      parrafoNuevaEdad.textContent=newAge+" años";
     } 
   });
 }
