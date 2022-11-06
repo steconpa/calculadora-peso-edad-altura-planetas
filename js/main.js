@@ -15,7 +15,6 @@ const fragment=document.createDocumentFragment();
 const earthGravity=systemSolarPlanets[2].gravedad;
 const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
 const formUserValues=document.querySelector("#formUserValues");
-
 let userWeight, userAge;
 
 formUserValues.addEventListener("submit",(event)=>{
