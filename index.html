@@ -33,7 +33,7 @@
           <li><a href="#planetaMercurio">Mercurio</a></li>
           <li><a href="#planetaVenus">Venus</a></li>
           <li><a href="#planetaMarte">Marte</a></li>
-          <li><a href="#planetaJupiter">Júpiter</a></li>
+          <li><a href="#planetaJúpiter">Júpiter</a></li>
           <li><a href="#planetaSaturno">Saturno</a></li>
           <li><a href="#planetaUrano">Urano</a></li>
           <li><a href="#planetaNeptuno">Neptuno</a></li>
@@ -43,67 +43,8 @@
     </header>
 
     <main>
-      <section class="grid-section">
-        <article class="grid-planet">
-          <img src="images/mercurio.svg" alt="Planeta Mercurio" />
-          <h2><a id="planetaMercurio" name="planetaMercurio"></a></h2>
-          <div class="cajas-resultados">
-            <div class="caja-peso">
-              <h3>Tu Peso</h3>
-              <p id="pMercurio"></p>
-            </div>
-            <div class="caja-edad">
-              <h3>Tu Edad</h3>
-              <p id="eMercurio"></p>
-            </div>      
-          </div>
-          <div class="grid-facts">
-            <h3>Datos</h3>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-        </article>
-        <article class="grid-planet">
-          <img src="images/venus.svg" alt="Planeta Venus" />
-          <h2><a id="planetaVenus" name="planetaVenus"></a></h2>
-          <div class="cajas-resultados">
-            <div class="caja-peso">
-              <h3>Tu Peso</h3>
-              <p id="pVenus"></p>
-            </div>
-            <div class="caja-edad">
-              <h3>Tu Edad</h3>
-              <p id="eVenus"></p>
-            </div>         
-          </div>
-          <div class="grid-facts">
-            <h3>Datos</h3>
-          </div>
-        </article>
-        <article class="grid-planet">
-          <h2><a id="planetaMarte" name="planetaMarte"></a></h2>
-          <p id="pMarte"></p>
-        </article>
-        <article class="grid-planet">
-          <h2><a id="planetaJúpiter" name="planetaJupiter"></a></h2>
-          <p id="pJúpiter"></p>
-        </article>
-        <article class="grid-planet">
-          <h2><a id="planetaSaturno" name="planetaSaturno"></a></h2>
-          <p id="pSaturno"></p>
-        </article>
-        <article class="grid-planet">
-          <h2><a id="planetaUrano" name="planetaUrano"></a></h2>
-          <p id="pUrano"></p>
-        </article>
-        <article class="grid-planet">
-          <h2><a id="planetaNeptuno" name="planetaNeptuno"></a></h2>
-          <p id="pNeptuno"></p></article>
+      <section id="flex-articles" class="flex-section">
+        
       </section> 
     </main>
 
@@ -112,6 +53,33 @@
       <p><a href="https://www.freepik.com/free-vector/planets-realistic-transparent-set_3795117.htm#query=planetas&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</p>
 
     </footer>
-<script src="js/main.js"></script>
+    <template id="template-articlePlanet">
+      <article class="grid-planet">
+        <img src="" alt=""/>
+        <h2><a name=""></a></h2>
+        <div class="cajas-resultados">
+          <div class="caja-peso">
+            <h3 class="h3Peso">Peso</h3>
+            <p class="pPeso"></p>
+          </div>
+          <div class="caja-edad">
+            <h3 class="h3Edad">Edad</h3>
+            <p class="pEdad"></p>
+          </div>      
+        </div>
+        <div class="grid-facts">
+          <h3>Datos</h3>
+          <ul class="planet-facts">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </article>
+
+    </template>
+    <script src="js/main.js"></script>
   </body>
 </html>
