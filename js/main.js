@@ -27,10 +27,14 @@ formUserValues.addEventListener("submit",(event)=>{
 })
 
 function calcNewValues(numPeso,numAge,arrayPlanets){
-  let newWeight=0; 
-  let newAge=0;
   const unidadPeso=" Kg.";
   const unidadEdad=" años";
+  let newWeight=0; 
+  let newAge=0;
+  let articulos=document.querySelector("#flex-articles .grid-planet");
+  if (articulos!==null){
+    document.getElementById("flex-articles").textContent ="";
+  }
   arrayPlanets.forEach(element =>{
     newWeight=Number((numPeso*element.gravedad/earthGravity).toFixed(2));
     newAge=Number((numAge*earthDaysYear/element.periodoOrbitalDias).toFixed(2));
