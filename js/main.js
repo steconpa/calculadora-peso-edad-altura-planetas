@@ -12,8 +12,6 @@ const systemSolarPlanets=[
 const articlePlanet=document.getElementById("flex-articles");
 const templateArticlePlanet=document.getElementById("template-articlePlanet").content;
 const fragment=document.createDocumentFragment();
-const earthGravity=systemSolarPlanets[2].gravedad;
-const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
 const formUserValues=document.querySelector("#formUserValues");
 let userWeight, userAge;
 
@@ -26,24 +24,44 @@ formUserValues.addEventListener("submit",(event)=>{
   calcNewValues(userWeight,userAge,systemSolarPlanets);
 })
 
+function calcNewWeight(weight,gravity){
+  const earthGravity=systemSolarPlanets[2].gravedad;
+  let newWeight=Number((weight*gravity/earthGravity).toFixed(2))+" Kg.";
+  return newWeight;
+}
+
+function calcNewAge(age,periodoOrbital){
+  const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
+  let newAge=Number(age*earthDaysYear/periodoOrbital);
+  if(newAge<1){
+    newAge=Math.floor(newAge*earthDaysYear)+" días";
+    return newAge;
+  }else{
+    newAge=Math.floor(newAge)+" años";
+    return newAge;
+  }
+}
+
 function calcNewValues(numPeso,numAge,arrayPlanets){
-  const unidadPeso=" Kg.";
-  const unidadEdad=" años";
-  let newWeight=0; 
-  let newAge=0;
+  let newWeight, newAge=0;
   let articulos=document.querySelector("#flex-articles .grid-planet");
   if (articulos!==null){
     document.getElementById("flex-articles").textContent ="";
   }
   arrayPlanets.forEach(element =>{
-    newWeight=Number((numPeso*element.gravedad/earthGravity).toFixed(2));
-    newAge=Number((numAge*earthDaysYear/element.periodoOrbitalDias).toFixed(2));
-    templateArticlePlanet.querySelector('.pPeso').textContent=newWeight+unidadPeso;
-    templateArticlePlanet.querySelector('.pEdad').textContent=newAge+unidadEdad;
+    newWeight=calcNewWeight(numPeso,element.gravedad);
+    newAge=calcNewAge(numAge,element.periodoOrbitalDias);
+    templateArticlePlanet.querySelector('.pPeso').textContent=newWeight;
+    templateArticlePlanet.querySelector('.pEdad').textContent=newAge;
     templateArticlePlanet.querySelector('img').setAttribute('src',element.imgPlanet);
     templateArticlePlanet.querySelector('img').setAttribute('alt',"Planeta "+element.planeta);
     templateArticlePlanet.querySelector('h2 a').textContent=element.planeta;
     templateArticlePlanet.querySelector('h2 a').setAttribute('name',"planeta"+element.planeta);
+    templateArticlePlanet.querySelector('#gravedad').textContent=element.gravedad+" m/s2";
+    templateArticlePlanet.querySelector('#velRotacionKmH').textContent=element.velRotacionKmH+" Km/h";
+    templateArticlePlanet.querySelector('#duracionDiaHr').textContent=element.duracionDiaHr+" Hr.";
+    templateArticlePlanet.querySelector('#velTraslacionKmH').textContent=element.velTraslacionKmH+" Km/h";
+    templateArticlePlanet.querySelector('#periodoOrbitalDias').textContent=element.periodoOrbitalDias+" días";
     const clone=templateArticlePlanet.cloneNode(true);
     fragment.appendChild(clone);
   });

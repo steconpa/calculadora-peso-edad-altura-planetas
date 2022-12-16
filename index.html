@@ -18,7 +18,7 @@
     <h1>Averigua tu peso y edad en otros planetas</h1>
     <section id="flex-header" class="flex-intro">
       <article class="flex-intro-article">
-        <p>¿Sabías que cuando subes a una báscula no estás midiendo tu masa? ¡Así es! Aunque hay muchos de aparatos para medir el "peso", y tienen sus escalas graduadas en Kg., en realidad estás midiendo la fuerza que ejerce la gravedad de la tierra sobre la masa de tu cuerpo, a esto se conoce como kilogramo-fuerza o kilopondio. Es por ello que si pudieras viajar a otros planetas tu "peso" sería diferente.</p>
+        <p>¿Sabías que cuando subes a una báscula no estás midiendo tu masa? ¡Así es! Aunque hay muchos de aparatos para medir el "peso", y tienen sus escalas graduadas en kilogramos, en realidad están midiendo la fuerza que ejerce la gravedad de la tierra sobre la masa de tu cuerpo, a esto se le conoce como kilogramo-fuerza o kilopondio. Es por ello que si pudieras viajar a otros planetas tu "peso" sería diferente.</p>
       </article>
       <article class="flex-intro-article">
         <form action="" id="formUserValues" name="formUserValues" method="get" class="formUserValues">
@@ -69,15 +69,27 @@
             <p class="pEdad"></p>
           </div>      
         </div>
-        <div class="grid-facts">
-          <h3>Datos</h3>
-          <ul class="planet-facts">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
+        <div class="caja-facts">
+          <table class="table-facts">
+            <thead>
+              <tr>
+                <th>Gravedad</th>
+                <th>Velocidad de rotación</th>
+                <th>Duración día</th>
+                <th>Velocidad de traslación</th>
+                <th>Periodo orbital</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="gravedad"></td>
+                <td id="velRotacionKmH"></td>
+                <td id="duracionDiaHr"></td>
+                <td id="velTraslacionKmH"></td>
+                <td id="periodoOrbitalDias"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </article>
     </template>
