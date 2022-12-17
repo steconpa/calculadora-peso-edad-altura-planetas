@@ -23,6 +23,10 @@ header{
    top:0;
 }
 
+h1{
+   padding-left: 1em;
+}
+
 .flex-intro {
    display: flex;
    flex-direction: row;
