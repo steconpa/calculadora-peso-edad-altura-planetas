@@ -13,10 +13,39 @@ const articlePlanet=document.getElementById("flex-articles");
 const templateArticlePlanet=document.getElementById("template-articlePlanet").content;
 const fragment=document.createDocumentFragment();
 const formUserValues=document.querySelector("#formUserValues");
-let userWeight, userAge;
+const inputsValues=document.querySelectorAll('#formUserValues input');
+
+const hacerValidaciones=(event)=>{
+  let limitePeso=640;
+  let limiteEdad=125;
+  switch (event.target.name){
+    case "inputWeight":
+      let valorPeso=event.target.value;
+      if(valorPeso>0&&valorPeso<=limitePeso){
+        console.log("cumple Peso");
+      }else{
+        console.log("No cumple Peso");
+      }
+    break;
+    case "inputAge":
+      let valorEdad=event.target.value;
+      if(valorEdad>0&&valorEdad<=limiteEdad){
+        console.log("cumple Edad");
+      }else{
+        console.log("No cumple Edad");
+      }
+    break;
+  }
+}
+
+inputsValues.forEach((input)=>{
+  input.addEventListener('keyup',hacerValidaciones);
+  input.addEventListener('blur',hacerValidaciones);
+});
 
 formUserValues.addEventListener("submit",(event)=>{
   event.preventDefault();
+  let userWeight, userAge;
   userWeight=event.target.inputWeight.value;
   userAge=event.target.inputAge.value;
   event.target.inputWeight.value='';
@@ -24,33 +53,15 @@ formUserValues.addEventListener("submit",(event)=>{
   calcNewValues(userWeight,userAge,systemSolarPlanets);
 })
 
-function calcNewWeight(weight,gravity){
-  const earthGravity=systemSolarPlanets[2].gravedad;
-  let newWeight=Number((weight*gravity/earthGravity).toFixed(2))+" Kg.";
-  return newWeight;
-}
-
-function calcNewAge(age,periodoOrbital){
-  const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
-  let newAge=Number(age*earthDaysYear/periodoOrbital);
-  if(newAge<1){
-    newAge=Math.floor(newAge*earthDaysYear)+" días";
-    return newAge;
-  }else{
-    newAge=Math.floor(newAge)+" años";
-    return newAge;
-  }
-}
-
-function calcNewValues(numPeso,numAge,arrayPlanets){
+function calcNewValues(numWeight,numAge,arrayPlanets){
   let newWeight, newAge=0;
   let articulos=document.querySelector("#flex-articles .grid-planet");
   if (articulos!==null){
     document.getElementById("flex-articles").textContent ="";
   }
   arrayPlanets.forEach(element =>{
-    newWeight=calcNewWeight(numPeso,element.gravedad);
-    newAge=calcNewAge(numAge,element.periodoOrbitalDias);
+    newWeight=getNewWeight(numWeight,element.gravedad);
+    newAge=getNewAge(numAge,element.periodoOrbitalDias);
     templateArticlePlanet.querySelector('.pPeso').textContent=newWeight;
     templateArticlePlanet.querySelector('.pEdad').textContent=newAge;
     templateArticlePlanet.querySelector('img').setAttribute('src',element.imgPlanet);
@@ -67,3 +78,22 @@ function calcNewValues(numPeso,numAge,arrayPlanets){
   });
   articlePlanet.appendChild(fragment);
 }
+
+function getNewWeight(weight,gravity){
+  const earthGravity=systemSolarPlanets[2].gravedad;
+  let newWeight=Number((weight*gravity/earthGravity).toFixed(2))+" Kg.";
+  return newWeight;
+}
+
+function getNewAge(age,periodoOrbital){
+  const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
+  let newAge=Number(age*earthDaysYear/periodoOrbital);
+  if(newAge<1){
+    newAge=Math.floor(newAge*earthDaysYear)+" días";
+    return newAge;
+  }else{
+    newAge=Math.floor(newAge)+" años";
+    return newAge;
+  }
+}
+
