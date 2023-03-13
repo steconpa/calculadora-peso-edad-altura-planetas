@@ -11,34 +11,140 @@
 
 body{
    font-family:'Didact Gothic', Verdana, Geneva, Tahoma, sans-serif;
-   background-color: #9eb5ca;
 }
 
-.menu{
+header{
+   display: flex;
    width: 100%;
-   margin: 0 auto;
-   background: #2f2f2f;
+   align-items: center;
+   max-height: 72px;
+   background-color:#164688;
+   justify-content: space-between;
+   position: fixed;
+   padding-left: 1em;
+   padding-right: 1em;
+}
+
+header .logotipo{
+   display: flex;
+   align-items: center;
+}
+
+.logotipo img{
+   max-height: 64px;
+   max-width: 64px;
+   margin-right: 10px;
+}
+
+header h1{
+   display: inline-block;
+   font-size: 32px;
+   text-transform: uppercase;
+   font-weight: normal;
+   color: #FEBF63;
+}
+
+header h1 span{
+   display: block;
+   font-size: 28px;
+   text-transform: lowercase;
+}
+
+nav{
    text-align: center;
 }
-.menu ul{
+
+nav ul{
    list-style: none;
 }
 
-.menu li{
+nav li{
    display: inline-block;
-   padding:20px;
+   padding: 10px;
    transition: all .3s ease-in ;
 }
 
-.menu ul li:hover{
+nav ul li:hover{
    transform: scale(1.2);
-   background: #e94f37;
+   background: #e5ac59ff;
 }
 
-.menu ul li a{
+nav ul li a{
    color: #fff;
    text-decoration: none;
 }
+
+main{
+   padding-top: 80px;
+}
+
+.introduction{
+   display: flex;
+   padding-bottom: 1em;
+}
+
+.introduction-text{
+   padding: 1em;
+}
+
+.introduction-text h2{
+   padding-bottom: 1em;
+}
+
+.introduction-text p{
+   padding-bottom: 5px;
+}
+
+form{
+   background-color: #FEBF63;
+   width: 250px;
+   padding: 10px 20px;
+   border-radius: 10px;
+}
+
+form h3{
+   text-align: center;
+   margin-bottom: 10px;
+   color: #164688;
+}
+
+form label{
+   width: 25%;
+   float: left;
+}
+
+form input{
+   width: 60%;
+   border-radius: 5px;
+   border-style: solid;
+   border-color: #FEBF63;
+   text-align: center;
+}
+
+form input:focus{
+   border: 2px solid #164688;
+   background: #aac0de;
+}
+
+form .error-message{
+   display: block;
+   font-size: smaller;
+   color: #164688;
+   padding-bottom: 10px;
+}
+
+form button{
+   background-color: #164688;
+   color: #aac0de;
+   font-size: 14px;
+   padding: 5px 10px;
+   box-shadow: 2px 2px 4px #888888;
+   border-radius: 5px;
+}
+
+button:hover {
+   background-color: #3e8e41;
+ }
 
 .planets-results{
    display: flex;
@@ -47,18 +153,26 @@ body{
    row-gap: 1em;
    width: 83%;
    margin: 0 auto;
-   
 }
 
 .planet-result{
    display: flex;
    flex-direction: column;
    grid-template-rows: repeat(5,1fr);
-   gap: 1em;
-   background-color: #f5f5f5; 
+   row-gap: 1em;
+   background-color: #164688;
+   color: #aac0de;
    border-radius: 10px; 
-   box-shadow: 0 0 10px rgba(0,0,0,0.2); 
-   overflow: hidden;
+   box-shadow: 0 0 10px #00000033;
+}
+
+.planet-result a{
+   text-decoration: none;
+   color: #ffe5be;
+}
+
+.planet-result h2, h3{
+   color: #FEBF63;
 }
 
 .image-container{
@@ -107,3 +221,5 @@ body{
 .planet-facts li{
    display: inline-block;
 }
+
+

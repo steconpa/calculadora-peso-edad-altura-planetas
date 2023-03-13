@@ -13,6 +13,8 @@ form.addEventListener("submit", function (event) {
   
   //Valida si los datos ingresados son validos
   if(validateFormData()){
+    const menuNav = document.querySelector("nav");
+    menuNav.style.setProperty('display', 'block');
     //Ejecuta la función para calcular 
     calculateResults();
   }
@@ -77,6 +79,9 @@ function calculateResults(){
     const planetCopy = planetTemplate.content.cloneNode(true);
     
     // Actualiza los valores de los elementos en la copia del template
+    const planetArticle = planetCopy.querySelector(".planet-result");
+    planetArticle.id= planet.name;
+    
     const planetName = planetCopy.querySelector(".planet-presentation h2");
     planetName.textContent = planet.name;
       
@@ -94,7 +99,7 @@ function calculateResults(){
     planetHeightSpan.textContent = planetHeight.toFixed(2);
 
     const planetAgeSpan = planetCopy.querySelector(".planet-age p span");
-    planetAgeSpan.textContent = planetAge.toFixed(2);
+    planetAgeSpan.textContent = planetAge;
       
     const planetRadius = planetCopy.querySelector("li:nth-of-type(1) span");
     planetRadius.textContent = planet.radius;
@@ -116,6 +121,9 @@ function calculateResults(){
       
     const planetTemperature = planetCopy.querySelector("li:nth-of-type(7) span");
     planetTemperature.textContent = planet.surfaceTemperature;
+
+    const planetMoreInfo = planetCopy.querySelector("li:nth-of-type(8) a");
+    planetMoreInfo.href = planet.moreInfo;
       
     // Agregar la información del planeta al fragmento de documento
     fragment.appendChild(planetCopy);
@@ -141,5 +149,8 @@ function calculateHeight(height, gravity) {
 // Función para calcular la edad en un planeta dado
 function calculateAge(age, orbitalPeriod) {
   const newAge = age * 365.24 / orbitalPeriod;
-  return newAge;
+  if(newAge>=1){
+    return Math.floor(newAge).toFixed()+" años"
+  }
+  return Math.floor(newAge * 365.24).toFixed()+" días";
 }

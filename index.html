@@ -17,49 +17,58 @@
   <body>
 
     <header>
+      <div class="logotipo">
+        <img src="images/Galaxy.svg" alt="Logotipo de Cómo serías en otros mundos">
+        <h1>cómo serías <br /><span>en otros mundos</span></h1>
+      </div>
 
-      <nav class="menu">
+      <nav>
         <ul>
-          <li><a href="#mercury">Mercurio</a></li>
-          <li><a href="#venus">Venus</a></li>
-          <li><a href="#earth">Tierra</a></li>
-          <li><a href="#mars">Marte</a></li>
-          <li><a href="#jupiter">Júpiter</a></li>
-          <li><a href="#saturn">Saturno</a></li>
-          <li><a href="#uranus">Urano</a></li>
-          <li><a href="#neptune">Neptuno</a></li>
+          <li><a href="#Mercurio">Mercurio</a></li>
+          <li><a href="#Venus">Venus</a></li>
+          <li><a href="#Tierra">Tierra</a></li>
+          <li><a href="#Marte">Marte</a></li>
+          <li><a href="#Júpiter">Júpiter</a></li>
+          <li><a href="#Saturno">Saturno</a></li>
+          <li><a href="#Urano">Urano</a></li>
+          <li><a href="#Neptuno">Neptuno</a></li>
         </ul>
       </nav>
 
     </header>
 
     <main>
-
-      <h1>Descubre cómo serías en otros mundos</h1>
-
-      <p>¿Alguna vez te has preguntado cómo sería una versión de ti en otro planeta? ¡Ahora puedes averiguarlo!</p>
-        <p>Cada planeta tiene su propia gravedad y órbita alrededor del Sol, lo que significa que tu peso, altura y edad serían diferentes en cada uno de ellos.</p>
+      <div class="introduction">
+        <div class="introduction-text">
+          <h2>Descubre tu peso, altura y edad en los diferentes planetas del sistema solar</h2>
+          
+          <p>¿Alguna vez te has preguntado cómo sería una versión de ti en otro planeta? ¡Ahora puedes averiguarlo!</p>
+          <p>Cada planeta tiene su propia gravedad y órbita alrededor del Sol, lo que significa que tu peso, altura y edad serían diferentes en cada uno de ellos.</p>
           <p>Ingresa tus datos en nuestro formulario para conocer cómo serías en otro mundo. ¡Explora el sistema solar ahora!</p>
 
-      <form id="calculator-form" name="calculator-form" method="get" novalidate>
-        <div>
-          <label for="weight">Peso:</label>
-          <input type="number" id="weight" name="weight" min=1 max=691 placeholder="Ingresa tu peso en kilogramos" required>
-          <span class="error-message" id="weight-error" aria-live="polite"></span>
         </div>
-        <div>
-          <label for="height">Altura:</label>
-          <input type="number" id="height" name="height" min=23 max=397 placeholder="Ingresa tu altura en cm" required>
-          <span class="error-message" id="height-error" aria-live="polite"></span>
+        <div class="presentation-form">
+          <form id="calculator-form" name="calculator-form" method="post" novalidate>
+            <h3>Ingresa tus datos</h3>
+            <div>
+              <label for="weight">Peso:</label>
+              <input type="number" id="weight" name="weight" min=1 max=691 placeholder="... en kg" required>
+              <span class="error-message" id="weight-error" aria-live="polite"></span>
+            </div>  
+            <div>  
+              <label for="height">Altura:</label>
+              <input type="number" id="height" name="height" min=23 max=397 placeholder="... en cm" required>
+              <span class="error-message" id="height-error" aria-live="polite"></span>
+            </div>  
+              <label for="age">Edad:</label>
+              <input type="number" id="age" name="age" min=1 max=211 placeholder="... en años" required>
+              <span class="error-message" id="age-error" aria-live="polite"></span>
+            <button type="submit">Calcular</button>
+          </form>
+
         </div>
-        <div>
-          <label for="age">Edad:</label>
-          <input type="number" id="age" name="age" min=1 max=211 placeholder="Ingresa tu edad en años" required>
-          <span class="error-message" id="age-error" aria-live="polite"></span>
-        </div>
-        <button type="submit">Calcular</button>
-      </form>
-      
+      </div>
+
       <section id="planets-results" class="planets-results">
         
       </section>
@@ -82,33 +91,36 @@
           <p> </p>
         </div>
         <div class="age-height-weight">
-          <h3>Tus resultados en este planeta</h3>
+          <h3>Cómo serías en este planeta</h3>
           <div class="planet-weight"> 
-            <h4>Peso: </h4>
+            <h4>Pesarías: </h4>
             <p> <span></span> kg.</p>
           </div>
           <div class="planet-height">
-            <h4>Altura:</h4>
+            <h4>Medirías:</h4>
             <p><span></span> cm</p>
           </div>
           <div class="planet-age">
-            <h4>Edad:</h4>
-            <p><span></span> años</p>
+            <h4>Tendrías:</h4>
+            <p><span></span></p>
           </div>
         </div>
         <div class="planet-facts">
           <ul>
-            <li><strong>Radio:</strong> <span></span> km</li>
-            <li><strong>Masa:</strong> <span></span> kg</li>
-            <li><strong>Gravedad:</strong> <span></span> m/s²</li>
-            <li><strong>Duración del día:</strong> <span></span> horas</li>
-            <li><strong>Duración del año:</strong> <span></span> días terrestres</li>
-            <li><strong>Distancia al sol:</strong> <span></span> millones de km</li>
-            <li><strong>Temperatura superficial:</strong> <span></span> </li>
+            <li>[ <strong>Radio:</strong> <span></span> ]</li>
+            <li>[ <strong>Masa:</strong> <span></span> kg ]</li>
+            <li>[ <strong>Gravedad:</strong> <span></span> m/s² ]</li>
+            <li>[ <strong>Duración del día:</strong> <span></span> horas ]</li>
+            <li>[ <strong>Duración del año:</strong> <span></span> días terrestres ]</li>
+            <li>[ <strong>Distancia al sol:</strong> <span></span> millones de km ]</li>
+            <li>[ <strong>Temperatura superficial:</strong> <span></span> ]</li>
+            <li><a href="">[ ...más información ]</a> </li>
           </ul>
         </div>
-
         
+        <div class="planet-next">
+          <a href="">siguiente</a>
+        </div>
 
       </article>
     </template>
