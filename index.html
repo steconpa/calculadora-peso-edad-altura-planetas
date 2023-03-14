@@ -17,42 +17,20 @@
     <link rel="icon"  href="images/faviconGalaxy.png" type="image/png" />
     
     <title>
-      Mi peso en el sistema solar
+      ¿Cómo serías en otros mundos? Calcula tu peso, altura y edad en los diferentes planetas del sistema solar
     </title>
 
   </head>
 
   <body>
-    <h1>Averigua tu peso y edad en otros planetas</h1>
-    <section id="flex-header" class="flex-intro">
-      <article class="flex-intro-article">
-        <p>¿Sabías que cuando subes a una báscula no estás midiendo tu masa? ¡Así es! Aunque hay muchos de aparatos para medir el "peso", y tienen sus escalas graduadas en kilogramos, en realidad están midiendo la fuerza que ejerce la gravedad de la tierra sobre la masa de tu cuerpo, a esto se le conoce como kilogramo-fuerza o kilopondio. Es por ello que si pudieras viajar a otros planetas tu "peso" sería diferente.</p>
-      </article>
-      <article class="flex-intro-article">
-        <form action="" id="formUserValues" name="formUserValues" method="get" class="formUserValues">
-          <fieldset>
-            <legend>Ingrese su peso y edad</legend>
-            <input class="camposForm" id="inputWeight" name="inputWeight" type="number" placeholder="Su peso aquí" required>
-            <input class="camposForm" id="inputAge" name="inputAge" type="number" placeholder="Su edad aquí" required>
-          <button class="buttonForm" id="buttonSendValues" name="buttonSendValues">Enviar</button>
-          </fieldset>
-        </form>
-      </article>
-    </section>
 
     <header>
-      <h1>Averigua tu peso y edad en otros planetas</h1>
-      <p id="pTierra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem eos asperiores, impedit minus dolor error consectetur cumque consequatur illo sint nam exercitationem. Quos impedit similique, esse architecto provident harum at?</p>
-      
-      <form action="" id="formUserValues" name="formUserValues" method="get">
-        <label for="inputWeight">Ingrese su peso</label>
-        <input id="inputWeight" name="inputWeight" type="number" placeholder="Ingrese su peso aquí" required>
-        <label for="inputAge">Ingrese su edad</label>
-        <input id="inputAge" name="inputAge" type="number" placeholder="Ingrese su edad aquí" required>
-        <button id="buttonSendValues" name="buttonSendValues">Enviar</button>
-      </form>
+      <div class="logotipo">
+        <img src="images/Galaxy.svg" alt="Logotipo de Cómo serías en otros mundos">
+        <h1>cómo serías <br /><span>en otros mundos</span></h1>
+      </div>
 
-      <nav class="menu">
+      <nav>
         <ul>
           <li><a href="#Mercurio">Mercurio</a></li>
           <li><a href="#Venus">Venus</a></li>
@@ -64,19 +42,51 @@
           <li><a href="#Neptuno">Neptuno</a></li>
         </ul>
       </nav>
+
     </header>
 
     <main>
-      <section id="flex-articles" class="flex-section">
+      <div class="introduction">
+        <div class="introduction-text">
+          <h2>Descubre tu peso, altura y edad en los diferentes planetas del sistema solar</h2>
+          
+          <p>¿Alguna vez te has preguntado cómo sería una versión de ti en otro planeta? ¡Ahora puedes averiguarlo!</p>
+          <p>Cada planeta tiene su propia gravedad y órbita alrededor del Sol, lo que significa que tu peso, altura y edad serían diferentes en cada uno de ellos.</p>
+          <p>Ingresa tus datos en nuestro formulario para conocer cómo serías en otro mundo. ¡Explora el sistema solar ahora!</p>
+
+        </div>
+        <div class="presentation-form">
+          <form id="calculator-form" name="calculator-form" novalidate>
+            <h3>Ingresa tus datos</h3>
+            <label for="weight">Peso:</label>
+            <input type="number" id="weight" name="weight" min=5 max=691 placeholder="... en kg" required>
+            <span class="error-message" id="weight-error" aria-live="polite"></span>
+            
+            <label for="height">Estatura:</label>
+            <input type="number" id="height" name="height" min=43 max=397 placeholder="... en cm" required>
+            <span class="error-message" id="height-error" aria-live="polite"></span>
+            
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" min=1 max=211 placeholder="... en años" required>
+            <span class="error-message" id="age-error" aria-live="polite"></span>
+            
+            <div>
+              <button type="submit">Calcular</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <section id="planets-results" class="planets-results">
         
-      </section> 
+      </section>
+
     </main>
 
     <footer>
       <p>Elaborado por: Stevens Contreras</p>
-      <p>Imagenes por:
-        <p><a href="https://www.freepik.com/free-vector/planets-realistic-transparent-set_3795117.htm#query=planetas&position=1&from_view=search&track=sph">macrovector</a></p>
-      </p><a href="https://www.freepik.com/free-vector/astronaut-riding-rocket-with-peace-hand-cartoon-vector-icon-illustration-science-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_16953109.htm#page=2&query=espacio&position=42&from_view=search&track=sph#position=42&page=2&query=espacio">catalyststuff</a>Freepik</p>
+      <p><a href="https://www.freepik.com/free-vector/planets-realistic-transparent-set_3795117.htm#query=planetas&position=1&from_view=search&track=sph">Image by macrovector</a> on Freepik</p>
+
     </footer>
 
     <template id="planet-template">
@@ -103,14 +113,16 @@
             <p><span></span></p>
           </div>
         </div>
-        <div class="grid-facts">
-          <h3>Datos</h3>
-          <ul class="planet-facts">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+        <div class="planet-facts">
+          <ul>
+            <li>[ <strong>Radio:</strong> <span></span> ]</li>
+            <li>[ <strong>Masa:</strong> <span></span> kg ]</li>
+            <li>[ <strong>Gravedad:</strong> <span></span> m/s² ]</li>
+            <li>[ <strong>Duración del día:</strong> <span></span> horas ]</li>
+            <li>[ <strong>Duración del año:</strong> <span></span> días terrestres ]</li>
+            <li>[ <strong>Distancia al sol:</strong> <span></span> millones de km ]</li>
+            <li>[ <strong>Temperatura superficial:</strong> <span></span> ]</li>
+            <li><a href="">[ ...más información ]</a> </li>
           </ul>
         </div>
 
