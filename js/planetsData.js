@@ -77,7 +77,7 @@ export const planetsData = [
     yearLength: 10657, // Earth years
     distanceFromSun: 1433.5, // million km
     surfaceTemperature: "-139° C", // °C
-    description: "Es conocido por sus anillos, los cuales están compuestos pequeñas partículas de hielo, polvo y rocas. Es un gigante gaseoso, con un tamaño de casi 10 veces el de la Tierra, y tiene al menos 82 lunas.",
+    description: "Es conocido por sus anillos, los cuales están compuestos de pequeñas partículas de hielo, polvo y rocas. Es un gigante gaseoso, con un tamaño de casi 10 veces el de la Tierra, y tiene al menos 62 lunas.",
     moreInfo: "https://spaceplace.nasa.gov/all-about-saturn/sp/"
   },
   {

@@ -4,12 +4,20 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Descipción de la página">
+    <meta name="description" content="Calcula tu edad, peso y altura en los planetas del sistema solar con nuestra herramienta en línea. Descubre cómo serías en otros mundos y amplía tu conocimiento astronómico.">
+    <meta property="og:title" content="Calcula tu edad, peso y altura en otros mundos">
+    <meta property="og:description" content="Descubre cómo serías en otros mundos con nuestra herramienta en línea. Calcula tu edad, peso y altura en los planetas del sistema solar.">
+    <meta property="og:image" content="https://ejemplo.com/imagen-preview.jpg">
+    <meta name="author" content="Stevens Contreras">
+    <meta name="email" content="stevens.contreras@uniminuto.edu.co">
+    <meta name="profile" content="https://www.ejemplo.com/perfil-del-autor">
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon"  href="images/faviconGalaxy.png" type="image/png" />
     
     <title>
-      Calcula tu peso y edad a través del sistema solar
+      ¿Cómo serías en otros mundos? Calcula tu peso, altura y edad en los diferentes planetas del sistema solar
     </title>
 
   </head>
@@ -48,24 +56,24 @@
 
         </div>
         <div class="presentation-form">
-          <form id="calculator-form" name="calculator-form" method="post" novalidate>
+          <form id="calculator-form" name="calculator-form" novalidate>
             <h3>Ingresa tus datos</h3>
+            <label for="weight">Peso:</label>
+            <input type="number" id="weight" name="weight" min=5 max=691 placeholder="... en kg" required>
+            <span class="error-message" id="weight-error" aria-live="polite"></span>
+            
+            <label for="height">Estatura:</label>
+            <input type="number" id="height" name="height" min=43 max=397 placeholder="... en cm" required>
+            <span class="error-message" id="height-error" aria-live="polite"></span>
+            
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" min=1 max=211 placeholder="... en años" required>
+            <span class="error-message" id="age-error" aria-live="polite"></span>
+            
             <div>
-              <label for="weight">Peso:</label>
-              <input type="number" id="weight" name="weight" min=1 max=691 placeholder="... en kg" required>
-              <span class="error-message" id="weight-error" aria-live="polite"></span>
-            </div>  
-            <div>  
-              <label for="height">Altura:</label>
-              <input type="number" id="height" name="height" min=23 max=397 placeholder="... en cm" required>
-              <span class="error-message" id="height-error" aria-live="polite"></span>
-            </div>  
-              <label for="age">Edad:</label>
-              <input type="number" id="age" name="age" min=1 max=211 placeholder="... en años" required>
-              <span class="error-message" id="age-error" aria-live="polite"></span>
-            <button type="submit">Calcular</button>
+              <button type="submit">Calcular</button>
+            </div>
           </form>
-
         </div>
       </div>
 
@@ -116,10 +124,6 @@
             <li>[ <strong>Temperatura superficial:</strong> <span></span> ]</li>
             <li><a href="">[ ...más información ]</a> </li>
           </ul>
-        </div>
-        
-        <div class="planet-next">
-          <a href="">siguiente</a>
         </div>
 
       </article>
