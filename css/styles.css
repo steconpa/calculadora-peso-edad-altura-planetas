@@ -8,13 +8,9 @@
    margin:0;
    padding:0;
 }
-html{
-   scroll-behavior: smooth;
-}
 
 body{
    font-family:'Didact Gothic', Verdana, Geneva, Tahoma, sans-serif;
-   background-color: #bfacc8;
 }
 
 header{
@@ -164,13 +160,15 @@ button:hover {
    margin: 0 auto;
 }
 
-.grid-planet{
-   display: grid;
-   background-color: #4a4063;
-   grid-template-rows:1fr 2fr 1fr;
-   grid-template-columns:1fr 4fr;
-   column-gap: 0.5em;
-   border-radius: 5px;
+.planet-result{
+   display: flex;
+   flex-direction: column;
+   grid-template-rows: repeat(5,1fr);
+   row-gap: 1em;
+   background-color: #aac0de;
+   color: #164688;
+   border-radius: 10px; 
+   box-shadow: 0 0 10px #00000033;
 }
 
 .planet-result a{
@@ -222,8 +220,9 @@ button:hover {
    font-size: small;
    text-align: center ;
 }
+
 .planet-facts li{
-   display: inline-flex;
+   display: inline-block;
 }
 
 
