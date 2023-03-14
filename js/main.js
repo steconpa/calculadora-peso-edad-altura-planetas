@@ -1,51 +1,23 @@
-const systemSolarPlanets=[
-  { planeta: "Mercurio", gravedad: 3.7, velRotacionKmH: 10.83, duracionDiaHr:4222.6, velTraslacionKmH:170640,periodoOrbitalDias:88, imgPlanet:"images/0mercurio.svg",},
-  { planeta: "Venus", gravedad: 8.87, velRotacionKmH:6.52, duracionDiaHr:2802, velTraslacionKmH:126000, periodoOrbitalDias:224.7,imgPlanet:"images/1venus.svg",},
-  { planeta: "Tierra", gravedad: 9.8, velRotacionKmH:1674, duracionDiaHr:24, velTraslacionKmH:107280, periodoOrbitalDias:365.2,imgPlanet:"images/2tierra.svg",},
-  { planeta: "Marte", gravedad: 3.71, velRotacionKmH:866, duracionDiaHr:24.7, velTraslacionKmH:86760, periodoOrbitalDias:687,imgPlanet:"images/3marte.svg",},
-  { planeta: "Júpiter", gravedad: 24.79, velRotacionKmH:45583, duracionDiaHr:9.9, velTraslacionKmH:47160, periodoOrbitalDias:4331,imgPlanet:"images/4jupiter.svg",},
-  { planeta: "Saturno", gravedad: 10.44, velRotacionKmH:36840, duracionDiaHr:10.7, velTraslacionKmH:34920, periodoOrbitalDias:10747,imgPlanet:"images/5saturno.svg",},
-  { planeta: "Urano", gravedad: 8.87, velRotacionKmH:14794, duracionDiaHr:17.2, velTraslacionKmH:24480, periodoOrbitalDias:30589,imgPlanet:"images/6urano.svg",},
-  { planeta: "Neptuno", gravedad: 11.15, velRotacionKmH:9719, duracionDiaHr:16.1, velTraslacionKmH:19440, periodoOrbitalDias:59800,imgPlanet:"images/7neptuno.svg",},
-];
+import {planetsData} from './planetsData.js';
+
+// Obtener la referencia al formulario y a los campos de edad y peso
+let form = document.querySelector('#calculator-form');
+let weightInput = document.querySelector('#weight');
+let heightInput = document.querySelector('#height');
+let ageInput = document.querySelector('#age');;
 
 const articlePlanet=document.getElementById("flex-articles");
 const templateArticlePlanet=document.getElementById("template-articlePlanet").content;
 const fragment=document.createDocumentFragment();
+const earthGravity=systemSolarPlanets[2].gravedad;
+const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
 const formUserValues=document.querySelector("#formUserValues");
-const inputsValues=document.querySelectorAll('#formUserValues input');
+let userWeight, userAge;
 
-const hacerValidaciones=(event)=>{
-  let limitePeso=640;
-  let limiteEdad=125;
-  switch (event.target.name){
-    case "inputWeight":
-      let valorPeso=event.target.value;
-      if(valorPeso>0&&valorPeso<=limitePeso){
-        console.log("cumple Peso");
-      }else{
-        console.log("No cumple Peso");
-      }
-    break;
-    case "inputAge":
-      let valorEdad=event.target.value;
-      if(valorEdad>0&&valorEdad<=limiteEdad){
-        console.log("cumple Edad");
-      }else{
-        console.log("No cumple Edad");
-      }
-    break;
-  }
-}
-
-inputsValues.forEach((input)=>{
-  input.addEventListener('keyup',hacerValidaciones);
-  input.addEventListener('blur',hacerValidaciones);
-});
-
-formUserValues.addEventListener("submit",(event)=>{
+// Escuchar el evento submit del formulario
+form.addEventListener("submit", function (event) {
+  // Prevenir el comportamiento por defecto del formulario
   event.preventDefault();
-  let userWeight, userAge;
   userWeight=event.target.inputWeight.value;
   userAge=event.target.inputAge.value;
   event.target.inputWeight.value='';
@@ -53,47 +25,46 @@ formUserValues.addEventListener("submit",(event)=>{
   calcNewValues(userWeight,userAge,systemSolarPlanets);
 })
 
-function calcNewValues(numWeight,numAge,arrayPlanets){
-  let newWeight, newAge=0;
-  let articulos=document.querySelector("#flex-articles .grid-planet");
-  if (articulos!==null){
-    document.getElementById("flex-articles").textContent ="";
-  }
+function calcNewValues(numPeso,numAge,arrayPlanets){
+  let newWeight=0; 
+  let newAge=0;
+  const unidadPeso=" Kg.";
+  const unidadEdad=" años";
   arrayPlanets.forEach(element =>{
-    newWeight=getNewWeight(numWeight,element.gravedad);
-    newAge=getNewAge(numAge,element.periodoOrbitalDias);
-    templateArticlePlanet.querySelector('.pPeso').textContent=newWeight;
-    templateArticlePlanet.querySelector('.pEdad').textContent=newAge;
+    newWeight=Number((numPeso*element.gravedad/earthGravity).toFixed(2));
+    newAge=Number((numAge*earthDaysYear/element.periodoOrbitalDias).toFixed(2));
+    templateArticlePlanet.querySelector('.pPeso').textContent=newWeight+unidadPeso;
+    templateArticlePlanet.querySelector('.pEdad').textContent=newAge+unidadEdad;
     templateArticlePlanet.querySelector('img').setAttribute('src',element.imgPlanet);
     templateArticlePlanet.querySelector('img').setAttribute('alt',"Planeta "+element.planeta);
     templateArticlePlanet.querySelector('h2 a').textContent=element.planeta;
     templateArticlePlanet.querySelector('h2 a').setAttribute('name',"planeta"+element.planeta);
-    templateArticlePlanet.querySelector('#gravedad').textContent=element.gravedad+" m/s2";
-    templateArticlePlanet.querySelector('#velRotacionKmH').textContent=element.velRotacionKmH+" Km/h";
-    templateArticlePlanet.querySelector('#duracionDiaHr').textContent=element.duracionDiaHr+" Hr.";
-    templateArticlePlanet.querySelector('#velTraslacionKmH').textContent=element.velTraslacionKmH+" Km/h";
-    templateArticlePlanet.querySelector('#periodoOrbitalDias').textContent=element.periodoOrbitalDias+" días";
     const clone=templateArticlePlanet.cloneNode(true);
     fragment.appendChild(clone);
   });
-  articlePlanet.appendChild(fragment);
+    
+  // Agregar el contenido generado al documento
+  const section = document.querySelector("#planets-results");
+  section.appendChild(fragment);
 }
 
-function getNewWeight(weight,gravity){
-  const earthGravity=systemSolarPlanets[2].gravedad;
-  let newWeight=Number((weight*gravity/earthGravity).toFixed(2))+" Kg.";
+// Función para calcular el peso en un planeta dado
+function calculateWeight(weight, gravity) {
+  const newWeight = (weight / 9.81) * gravity;
   return newWeight;
 }
 
-function getNewAge(age,periodoOrbital){
-  const earthDaysYear=systemSolarPlanets[2].periodoOrbitalDias;
-  let newAge=Number(age*earthDaysYear/periodoOrbital);
-  if(newAge<1){
-    newAge=Math.floor(newAge*earthDaysYear)+" días";
-    return newAge;
-  }else{
-    newAge=Math.floor(newAge)+" años";
-    return newAge;
-  }
+// Función para calcular la altura en un planeta dado
+function calculateHeight(height, gravity) {
+  const newHeight = (height / 9.81) * gravity;
+  return newHeight;
 }
 
+// Función para calcular la edad en un planeta dado
+function calculateAge(age, orbitalPeriod) {
+  const newAge = age * 365.24 / orbitalPeriod;
+  if(newAge>=1){
+    return Math.floor(newAge).toFixed()+" años"
+  }
+  return Math.floor(newAge * 365.24).toFixed()+" días";
+}

@@ -4,12 +4,20 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Descipción de la página">
+    <meta name="description" content="Calcula tu edad, peso y altura en los planetas del sistema solar con nuestra herramienta en línea. Descubre cómo serías en otros mundos y amplía tu conocimiento astronómico.">
+    <meta property="og:title" content="Calcula tu edad, peso y altura en otros mundos">
+    <meta property="og:description" content="Descubre cómo serías en otros mundos con nuestra herramienta en línea. Calcula tu edad, peso y altura en los planetas del sistema solar.">
+    <meta property="og:image" content="https://ejemplo.com/imagen-preview.jpg">
+    <meta name="author" content="Stevens Contreras">
+    <meta name="email" content="stevens.contreras@uniminuto.edu.co">
+    <meta name="profile" content="https://www.ejemplo.com/perfil-del-autor">
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon"  href="images/faviconGalaxy.png" type="image/png" />
     
     <title>
-      Mi peso y edad en el sistema solar
+      Mi peso en el sistema solar
     </title>
 
   </head>
@@ -33,21 +41,34 @@
     </section>
 
     <header>
+      <h1>Averigua tu peso y edad en otros planetas</h1>
+      <p id="pTierra">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem eos asperiores, impedit minus dolor error consectetur cumque consequatur illo sint nam exercitationem. Quos impedit similique, esse architecto provident harum at?</p>
+      
+      <form action="" id="formUserValues" name="formUserValues" method="get">
+        <label for="inputWeight">Ingrese su peso</label>
+        <input id="inputWeight" name="inputWeight" type="number" placeholder="Ingrese su peso aquí" required>
+        <label for="inputAge">Ingrese su edad</label>
+        <input id="inputAge" name="inputAge" type="number" placeholder="Ingrese su edad aquí" required>
+        <button id="buttonSendValues" name="buttonSendValues">Enviar</button>
+      </form>
+
       <nav class="menu">
         <ul>
-          <li><a href="#planetaMercurio">Mercurio</a></li>
-          <li><a href="#planetaVenus">Venus</a></li>
-          <li><a href="#planetaMarte">Marte</a></li>
-          <li><a href="#planetaJúpiter">Júpiter</a></li>
-          <li><a href="#planetaSaturno">Saturno</a></li>
-          <li><a href="#planetaUrano">Urano</a></li>
-          <li><a href="#planetaNeptuno">Neptuno</a></li>
+          <li><a href="#Mercurio">Mercurio</a></li>
+          <li><a href="#Venus">Venus</a></li>
+          <li><a href="#Tierra">Tierra</a></li>
+          <li><a href="#Marte">Marte</a></li>
+          <li><a href="#Júpiter">Júpiter</a></li>
+          <li><a href="#Saturno">Saturno</a></li>
+          <li><a href="#Urano">Urano</a></li>
+          <li><a href="#Neptuno">Neptuno</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <section id="flex-articles" class="flex-section">
+        
       </section> 
     </main>
 
@@ -57,44 +78,45 @@
         <p><a href="https://www.freepik.com/free-vector/planets-realistic-transparent-set_3795117.htm#query=planetas&position=1&from_view=search&track=sph">macrovector</a></p>
       </p><a href="https://www.freepik.com/free-vector/astronaut-riding-rocket-with-peace-hand-cartoon-vector-icon-illustration-science-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_16953109.htm#page=2&query=espacio&position=42&from_view=search&track=sph#position=42&page=2&query=espacio">catalyststuff</a>Freepik</p>
     </footer>
-    <template id="template-articlePlanet">
-      <article class="grid-planet">
-        <img src="" alt=""/>
-        <h2><a name=""></a></h2>
-        <div class="cajas-resultados">
-          <div class="caja-peso">
-            <h3 class="h3Peso">Peso</h3>
-            <p class="pPeso"></p>
+
+    <template id="planet-template">
+      <article class="planet-result">
+        <div class="image-container">
+          <img src="" alt="" />
+        </div>
+        <div class="planet-presentation">
+          <h2> </h2>
+          <p> </p>
+        </div>
+        <div class="age-height-weight">
+          <h3>Cómo serías en este planeta</h3>
+          <div class="planet-weight"> 
+            <h4>Pesarías: </h4>
+            <p> <span></span> kg.</p>
           </div>
-          <div class="caja-edad">
-            <h3 class="h3Edad">Edad</h3>
-            <p class="pEdad"></p>
-          </div>      
+          <div class="planet-height">
+            <h4>Medirías:</h4>
+            <p><span></span> cm</p>
+          </div>
+          <div class="planet-age">
+            <h4>Tendrías:</h4>
+            <p><span></span></p>
+          </div>
         </div>
-        <div class="caja-facts">
-          <table class="table-facts">
-            <thead>
-              <tr>
-                <th>Gravedad</th>
-                <th>Velocidad de rotación</th>
-                <th>Duración día</th>
-                <th>Velocidad de traslación</th>
-                <th>Periodo orbital</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td id="gravedad"></td>
-                <td id="velRotacionKmH"></td>
-                <td id="duracionDiaHr"></td>
-                <td id="velTraslacionKmH"></td>
-                <td id="periodoOrbitalDias"></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="grid-facts">
+          <h3>Datos</h3>
+          <ul class="planet-facts">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </div>
+
       </article>
     </template>
-    <script src="js/main.js"></script>
+
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>

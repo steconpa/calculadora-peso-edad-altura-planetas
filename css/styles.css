@@ -14,148 +14,216 @@ html{
 
 body{
    font-family:'Didact Gothic', Verdana, Geneva, Tahoma, sans-serif;
-   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-   background-size:cover;
+   background-color: #bfacc8;
 }
 
 header{
-   position: sticky;
-   top:0;
-}
-
-h1{
-   padding-left: 1em;
-}
-
-.flex-intro {
    display: flex;
-   flex-direction: row;
-   padding: 10px;
-}
-
-.flex-intro-article{
-   flex-basis: 50%;
-   flex-grow: 1;
-   align-items: flex-start;
-}
-
-.formUserValues{
-   padding: 20px;
-   border-radius: 10px;
-   display: flex;
-   justify-content: center;
-}
-
-fieldset{
-   border:0;
-   background-color: #e94f37;
-   border-radius: 10px;
-}
-
-legend{
-   padding-top: 25px;
-   margin-bottom: 10px;
-   text-align: center;
-}
-
-.camposForm{
-   padding: 5px;
-   margin-bottom: 10px;
-   display: block;
-}
-
-.menu{
    width: 100%;
-   margin: 0 auto;
-   background: #2f2f2f;
+   align-items: center;
+   max-height: 72px;
+   background-color:#164688;
+   justify-content: space-between;
+   position: fixed;
+   padding-left: 1em;
+   padding-right: 1em;
+}
+
+header .logotipo{
+   display: flex;
+   align-items: center;
+}
+
+.logotipo img{
+   max-height: 64px;
+   max-width: 64px;
+   margin-right: 10px;
+}
+
+header h1{
+   display: inline-block;
+   font-size: 32px;
+   text-transform: uppercase;
+   font-weight: normal;
+   color: #FEBF63;
+}
+
+header h1 span{
+   display: block;
+   font-size: 28px;
+   text-transform: lowercase;
+}
+
+nav{
    text-align: center;
 }
-.menu .planet-facts ul{
+
+nav ul{
    list-style: none;
 }
 
-.menu li{
+nav li{
    display: inline-block;
-   padding:20px;
+   padding: 10px;
    transition: all .3s ease-in ;
 }
 
-.menu ul li:hover{
+nav ul li:hover{
    transform: scale(1.2);
-   background: #e94f37;
+   background: #e5ac59ff;
 }
 
-.menu ul li a{
+nav ul li a{
    color: #fff;
    text-decoration: none;
 }
 
-.flex-section{
+main{
+   padding-top: 80px;
+}
+
+.introduction{
+   display: flex;
+   padding-bottom: 1em;
+}
+
+.introduction-text{
+   padding: 1em;
+}
+
+.introduction-text h2{
+   padding-bottom: 1em;
+}
+
+.introduction-text p{
+   padding-bottom: 5px;
+}
+
+form{
+   background-color: #FEBF63;
+   width: 250px;
+   padding: 10px 20px;
+   border-radius: 10px;
+}
+
+form h3{
+   text-align: center;
+   margin-bottom: 10px;
+   color: #164688;
+}
+
+form div{
+   text-align: center;
+}
+
+form label{
+   width: 35%;
+   float: left;
+}
+
+form input{
+   width: 60%;
+   border-radius: 5px;
+   border-style: solid;
+   border-color: #FEBF63;
+   text-align: center;
+}
+
+form input:focus{
+   border: 2px solid #164688;
+   background: #aac0de;
+}
+
+form .error-message{
+   display: block;
+   font-size: smaller;
+   color: #164688;
+   padding-bottom: 10px;
+}
+
+form button{
+   background-color: #164688;
+   color: azure;
+   font-size: 14px;
+   padding: 5px 10px;
+   box-shadow: 2px 2px 4px #888888;
+   border-radius: 5px;
+}
+
+button:hover {
+   background-color: #aac0de;
+   color:#164688;
+ }
+
+.planets-results{
    display: flex;
    flex-direction: column;
    grid-template-rows: repeat(8,1fr);
    row-gap: 1em;
-   width: 80%;
-   justify-content: center;
+   width: 83%;
    margin: 0 auto;
 }
 
 .grid-planet{
    display: grid;
    background-color: #4a4063;
-   grid-template-rows:0.5fr 1fr 1fr;
+   grid-template-rows:1fr 2fr 1fr;
    grid-template-columns:1fr 4fr;
    column-gap: 0.5em;
-   row-gap: 0.5em;
    border-radius: 5px;
 }
 
-.grid-planet img{
-   grid-row: 1/4;
-   justify-self: center;
-   align-self: center;
-   max-width: 70%;
+.planet-result a{
+   text-decoration: none;
+   color: #ce8111;
 }
 
-.grid-planet  h2{
-   color: darkkhaki;
-   align-self: center;
-}
-
-.cajas-resultados{
-   align-self: center;
-   display: flex;
-   justify-content: space-evenly;
-}
-
-.caja-peso{
-   text-align: center;
-   width: auto;
-   border-radius: 10px;
-   background-color: rgb(137, 80, 217);
-   padding: 1em;
-}
-
-.caja-edad{
-   text-align: center;
-   width: auto;
-   border-radius: 10px;
-   background-color: rgb(137, 80, 217);
-   padding: 1em;
-}
-
-table {
-   margin-left: auto;
-   margin-right: auto;
-   border-collapse: separate;
-   border-spacing: 5px;
-   color: rgb(131, 210, 255);
-   text-align: center;
-}
-
-caption, td, th {
-   background: #fff;
-   color: #000;
-   padding: 5px;
+.image-container{
+   display: grid;
+   justify-items: center;
    align-content: center;
+   background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/84/Stars_%28181093993%29.jpg); 
+   background-position: center; 
+   background-size: cover; 
+   height: 230px; 
 }
+
+.image-container img{
+   height: 200px;
+   width: 200px;
+}
+
+.planet-presentation{
+   margin: 0 auto;
+   width: 89%;
+   justify-items: center;
+   text-align: center;
+}
+
+.age-height-weight{
+   display: grid;
+   padding-bottom: 10px;
+   justify-items: center;
+   grid-template-rows: repeat(2, 1fr);
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-areas: 
+   "result result result"
+   "peso altura edad";
+}
+
+.age-height-weight h3{
+   text-align: center;
+   color: #164688;
+   grid-area: result;
+}
+
+.planet-facts{
+   padding: 1em;
+   font-size: small;
+   text-align: center ;
+}
+.planet-facts li{
+   display: inline-flex;
+}
+
+
