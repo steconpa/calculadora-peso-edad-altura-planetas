@@ -17,12 +17,13 @@ header{
    display: flex;
    width: 100%;
    align-items: center;
-   max-height: 72px;
-   background-color:#164688;
+   background-color: #164688;
    justify-content: space-between;
    position: fixed;
+   height: 72px;
    padding-left: 1em;
    padding-right: 1em;
+   top: 0;
 }
 
 header .logotipo{
@@ -80,7 +81,7 @@ main{
 
 .introduction{
    display: flex;
-   padding-bottom: 1em;
+   padding: 1em;
 }
 
 .introduction-text{
@@ -93,6 +94,11 @@ main{
 
 .introduction-text p{
    padding-bottom: 5px;
+}
+
+.presentation-form{
+   padding: 1em;
+   margin: 0 auto;
 }
 
 form{
@@ -225,4 +231,17 @@ button:hover {
    display: inline-block;
 }
 
+@media only screen and (max-width: 480px) {
+   header{
+      flex-direction: column;
+      height: auto;
+   }
 
+   main {
+      padding-top: 180px;
+   }
+
+   .introduction{
+      flex-direction: column;
+   }
+}
