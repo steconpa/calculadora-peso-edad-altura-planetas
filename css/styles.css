@@ -231,6 +231,31 @@ button:hover {
    display: inline-block;
 }
 
+.planet-facts a {
+   display: inline-block;
+   padding: 2px 4px;
+   border: 1px solid #c49651;
+   border-radius: 4px;
+   background-color: #e6bf85;
+   color: #164688;
+   text-decoration: none;
+   text-align: center;
+   cursor: pointer;
+ }
+ 
+ .planet-facts a:hover {
+   background-color: #e6e6e6;
+   border-color: #5b76ce;
+ }
+
+footer {
+   text-align: center;
+   padding: 1em;
+}
+footer img{
+   width: 80px;
+}
+
 @media only screen and (max-width: 480px) {
    header{
       flex-direction: column;
